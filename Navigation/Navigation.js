@@ -1,8 +1,6 @@
 import React from 'react';
-import { Button, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -11,6 +9,11 @@ import MapPostEventPage from '../Pages/MapStack/MapPostEvent.page';
 import MapEventDetailsPage from '../Pages/MapStack/MapEventDetails.page';
 import MapMainPage from '../Pages/MapStack/MapMain.page';
 import ProfilMainPage from '../Pages/ProfilStack/ProfilMain.page';
+
+import MapTestPage from '../Pages/MapStack/MapTest.page';
+import MapTest2Page from '../Pages/MapStack/MapTest2.page';
+
+
 
 function MapDuplicateAlertScreen() {
     return (
@@ -36,9 +39,19 @@ function MapMainScreen({ navigation }) {
     );
 }
 
+function MapTestScreen({ navigation }) {
+  return (
+      <MapTestPage navigation={navigation}/>
+  );
+}
+
+function MapTest2Screen({ navigation }) {
+  return (
+      <MapTest2Page navigation={navigation}/>
+  );
+}
 
 function ProfilScreen({ navigation }) {
-
     return (
         <ProfilMainPage navigation={navigation}/>
     );
@@ -63,6 +76,8 @@ function HomeStackScreen() {
       <HomeStack.Screen name="MapEventDetails" component={MapEventDetailsScreen} />
       <HomeStack.Screen name="MapPostEvent" component={MapPostEventScreen} />
       <HomeStack.Screen name="MapDuplicateAlert" component={MapDuplicateAlertScreen} />
+      <HomeStack.Screen name="MapTest" component={MapTestScreen} />
+      <HomeStack.Screen name="MapTest2" component={MapTest2Screen} />
     </HomeStack.Navigator>
   );
 }
@@ -82,14 +97,16 @@ function ProfilStackScreen() {
         },
       }}
     >
-      <ProfilStack.Screen name="Profil" component={ProfilScreen} />
+      <ProfilStack.Screen name="Profil" component={ProfilScreen}/>
     </ProfilStack.Navigator>
   );
 }
 
 const Tab = createMaterialBottomTabNavigator();
 
-export default function Navigation() {
+function Navigation() {
+
+  
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -103,7 +120,7 @@ export default function Navigation() {
             ),
           }}
         />
-        <Tab.Screen name="Profil" component={ProfilStackScreen}
+        <Tab.Screen name="Profil" component={ProfilStackScreen} 
           options={{
             tabBarLabel: 'PROFIL',
             tabBarIcon: ({ color }) => (
@@ -115,3 +132,5 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
+export default Navigation

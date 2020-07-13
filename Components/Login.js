@@ -5,11 +5,13 @@ import Logo from '../Components/Logo'
 import TextInputCustom from '../Components/TextInputCustom'
 import BoutonCustom from '../Components/BoutonCustom'
 
+
 export default function Login(props) {
 
 
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+
 
   const handleUsername = (texte) => {
     setUsername(texte)
@@ -23,7 +25,6 @@ export default function Login(props) {
     //console.log("login infos", username, password)
     props.onLogin(username, password)
   }
-
 
   return (
     <View style={styles.container}>
@@ -41,3 +42,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 })
+
+

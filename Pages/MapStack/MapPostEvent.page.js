@@ -7,10 +7,7 @@ import TextCustom from '../../Components/TextCustom'
 import CircleBoutonCustom from '../../Components/CircleBoutonCustom'
 import BoutonCustom from '../../Components/BoutonCustom';
 
-export default class MapPostEventPage extends React.Component{
-
-    render(){
-        const {navigation} = this.props;
+export default function MapPostEventPage(props){
         return(
             <View style={styles.main_container}>
                 <View style={styles.img_container}>
@@ -33,7 +30,6 @@ export default class MapPostEventPage extends React.Component{
                 </View>
             </View>
         )
-    }
 }
 
 const styles = StyleSheet.create({

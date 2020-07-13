@@ -1,37 +1,42 @@
 import React from 'react';
-import { Text, View, Button, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import BoutonIcon from './BoutonIcon';
 
 
 export default function Header(props) {
 
   return (
-    <View style={styles.container}>
       <View style={styles.header}> 
         {props.user !== undefined &&
           <View style={styles.profileButton}>
-            <Text style={styles.text}>{props.user.firstname} {props.user.lastname} </Text>
-            <Button onPress={props.onLogout} title="Deconnexion" />
+            <View>
+              <Text style={styles.text}>{props.user.firstname} {props.user.lastname} </Text>
+            </View>
+            <View style={styles.boutonLogout}>
+              <BoutonIcon  icon={"power-standby"} iconColor={"white"} color={'#C23131'} iconSize={15} width={30} onPress={props.onLogout} />
+            </View>
           </View>
         }
       </View>
-    </View>
   )
 }
 
 
 const styles = StyleSheet.create({
   header: {
+    marginTop:5,
     minWidth:400,
-    height:30,
-    backgroundColor:'red',
+    height:32,
     flexDirection: 'row',
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent:'flex-end',
   },
   text: {
-    fontSize:30,
-    color:'black',
+    fontSize:20,
+    color:'white',
 
+  },
+  boutonboutonLogoutAdEvent: {
+    flex:1,
   },
   profileButton: {
     flexDirection: 'row',

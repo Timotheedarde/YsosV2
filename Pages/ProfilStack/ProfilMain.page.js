@@ -5,10 +5,10 @@ import CirclePictureArea from '../../Components/CirclePictureArea'
 import TextInputCustom from '../../Components/TextInputCustom'
 import BoutonCustom from '../../Components/BoutonCustom'
 
-export default class ProfilMainPage extends React.Component{
+export default function ProfilMainPage(){
 
-    render(){
-        const {navigation} = this.props;
+    //console.log("get user",getUser);
+
         return(
             <View style={styles.main_container}>
                 <CirclePictureArea text={'Votre Avatar'} color={'white'} />
@@ -18,7 +18,6 @@ export default class ProfilMainPage extends React.Component{
                 <BoutonCustom text={'Supprimer mon compte'} color={'#C23131'} fontSize={15} width={250} />
             </View>
         )
-    }
 }
 
 const styles = StyleSheet.create({

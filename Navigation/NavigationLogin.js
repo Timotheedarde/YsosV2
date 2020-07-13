@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import 'react-native-gesture-handler';
 import { View, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 import Header from '../Components/Header';
-import Navigation from '../Navigation/Navigation';
-import LoginMain from '../Pages/LoginStack/LoginMain.page';
+import Navigation from './Navigation';
+import LoginConnectTo from '../Pages/LoginStack/LoginConnectTo.page';
 
 
 export default function NavigationLogin() {
@@ -25,12 +27,14 @@ export default function NavigationLogin() {
 
   return (
     <View style={styles.container}>
-      <Header user={loggedInUser} onLogout={handleLogout}/>
       {loggedInUser &&
-        <Navigation user={loggedInUser} onLogout={handleLogout}/>
+        <View>
+          <Header  style={styles.header} user={loggedInUser} onLogout={handleLogout}/>
+          <Navigation user={loggedInUser}/>
+        </View>
       }
       {!loggedInUser &&
-        <LoginMain onLoginSuccessful={handleLoginSuccessful}/>
+        <LoginConnectTo onLoginSuccessful={handleLoginSuccessful}/>
       }
     </View>
 
@@ -44,6 +48,6 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     backgroundColor: "#3A60F8"
-  }
+  },
 });
 
