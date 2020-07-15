@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import CirclePictureArea from '../../Components/CirclePictureArea'
 import TextInputCustom from '../../Components/TextInputCustom'
@@ -7,7 +7,11 @@ import TextCustom from '../../Components/TextCustom'
 import CircleBoutonCustom from '../../Components/CircleBoutonCustom'
 import BoutonCustom from '../../Components/BoutonCustom';
 
-export default function MapPostEventPage(props){
+export default function MapPostEventPage({route, navigation}){
+    const { lat } = route.params;
+    const { lng } = route.params;
+    // console.log('lat', lat)
+    // console.log('lng', lng)
         return(
             <View style={styles.main_container}>
                 <View style={styles.img_container}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 
 import CirclePictureArea from '../../Components/CirclePictureArea'
 import TextInputCustom from '../../Components/TextInputCustom'
@@ -11,11 +11,12 @@ export default function ProfilMainPage(){
 
         return(
             <View style={styles.main_container}>
-                <CirclePictureArea text={'Votre Avatar'} color={'white'} />
+                <CirclePictureArea color={'white'} />
                 <TextInputCustom placeholder={'Pseudo'} />
                 <TextInputCustom placeholder={'Adresse Email'} />
                 <BoutonCustom text={'Mettre à jour'} color={'#3DBB41'} fontSize={30} width={250} />
                 <BoutonCustom text={'Supprimer mon compte'} color={'#C23131'} fontSize={15} width={250} />
+                {/* <Button title="cliquez ici" /> */}
             </View>
         )
 }

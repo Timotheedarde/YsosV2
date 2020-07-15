@@ -1,0 +1,116 @@
+/**
+ * Mon composant pour afficher l'accueil
+ */
+import {colors} from '../Helpers/colors'
+/**
+ ** Support de Google Map avec React-Native-Map
+ */
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps' // remove PROVIDER_GOOGLE import if not using Google Maps
+/**
+ ** Géolocalisation avec React-Native-Geolocation-Map
+ */
+import Geolocation from 'react-native-geolocation-service'
+
+
+import React, { useState, useEffect } from 'react';
+import {
+    StyleSheet,
+    View,
+    TouchableOpacity,
+    Alert,
+} from 'react-native';
+
+import Footer_Accueil from './SubComponents/Footer_Accueil'
+import Ajouter_Photo from './SubComponents/Ajouter_Photo'
+import CTA_Fish from './SubComponents/CTA_Fish'
+import Gps_Pecheur from '../Assets/Icones/GPS_Pecheur';
+
+
+export default function Accueil({ navigation }){
+    const [latitude, setLatitude] = useState(0)
+    const [longitude, setLongitude] = useState(0)
+    React.useEffect(() => {
+        // if (hasLocationPermission) {
+           Geolocation.getCurrentPosition(
+                (position) => {
+                // console.log(position);
+                // console.log(typeof position.coords.latitude);
+                // console.log(position.coords.latitude);
+                setLatitude(position.coords.latitude)
+                setLongitude(position.coords.longitude)
+                },
+                (error) => {
+                console.log(error.code, error.message);
+                },
+                { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+            );
+           Geolocation.watchPosition(
+                (position) => {
+                // console.log(position);
+                // console.log(typeof position.coords.latitude);
+                // console.log(position.coords.latitude);
+                setLatitude(position.coords.latitude)
+                setLongitude(position.coords.longitude)
+                },
+                (error) => {
+                console.log(error.code, error.message);
+                },
+                { enableHighAccuracy: true, interval: 10 }
+            );
+        // }
+}, []);
+console.log({longitude, latitude})
+    return(
+    <View style={styles.main}>
+        <View style={styles.container}>
+            <MapView
+                provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                style={styles.map}
+                mapType={"satellite"}
+                // showsUserLocation = {true}
+                region={{
+                    latitude: latitude,
+                    longitude: longitude,
+                    latitudeDelta: 0.015,
+                    longitudeDelta: 0.0121,
+                }}
+                onLongPress={(data)=>
+                    <Marker title={"poi"} coordinate={}>
+                    <Gps_Pecheur width={20} height={20}/>
+                    </Marker>}
+            >
+            <Marker
+            title={"yepo"}
+            coordinate={{latitude,longitude}}
+            >
+                <Gps_Pecheur width={
+
+ <Marker
+            title={"yepo"}
+            coordinate={{latitude,longitude}}
+            >
+                <Gps_Pecheur width={20} height={20}/>
+            </Marker>
+            </MapView>
+        </View>
+        <Footer_Accueil/>
+        <CTA_Fish navigation={navigation}/>
+    </View>
+    )
+
+}
+
+const styles = StyleSheet.create({
+    main: {
+        flex:1,
+        backgroundColor: colors.mint,
+        paddingHorizontal: 16
+    },
+        container: {
+            flex:8,
+            marginHorizontal: -16
+        },
+        map: {
+            flex:1
+        },
+})

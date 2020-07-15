@@ -2,6 +2,9 @@
   package="com.ysos">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- React-Native-Geolocation-Service utlilise ces propriétés pour la géolocalisation -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
       android:name=".MainApplication"

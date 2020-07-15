@@ -5,15 +5,15 @@ import { StyleSheet, TouchableOpacity, Text, View, Image} from 'react-native';
 export default class CirclePictureArea extends React.Component {
     render(){
         
-        const {text, color, srcPhoto, onPress}=this.props;
+        const {text, color, width, srcPhoto, onPress}=this.props;
 
         const styles = StyleSheet.create({
             container:{
                 margin:5,
                 backgroundColor:color,
-                borderRadius:100,
-                width:200,
-                height:200,
+                borderRadius:width/2,
+                width:width,
+                height:width,
                 borderBottomWidth:1,
                 borderLeftWidth:.5,
                 borderRightWidth:.5,
@@ -29,9 +29,9 @@ export default class CirclePictureArea extends React.Component {
                 fontSize: 30,
             },
             image:{
-                borderRadius:100,
-                width:200,
-                height:200,
+                borderRadius:width/2,
+                width:width,
+                height:width,
                 borderBottomWidth:1.5,
                 borderLeftWidth:1,
                 borderRightWidth:1,

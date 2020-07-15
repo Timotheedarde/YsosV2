@@ -10,10 +10,17 @@ import MapEventDetailsPage from '../Pages/MapStack/MapEventDetails.page';
 import MapMainPage from '../Pages/MapStack/MapMain.page';
 import ProfilMainPage from '../Pages/ProfilStack/ProfilMain.page';
 
+import Permission from '../Pages/MapStack/Permission.page';
+
 import MapTestPage from '../Pages/MapStack/MapTest.page';
 import MapTest2Page from '../Pages/MapStack/MapTest2.page';
 
 
+function PermissionScreen() {
+  return (
+      <Permission/>
+  );
+}
 
 function MapDuplicateAlertScreen() {
     return (
@@ -21,15 +28,15 @@ function MapDuplicateAlertScreen() {
     );
  }
 
-function MapPostEventScreen() {
+function MapPostEventScreen({route}) {
     return (
-        <MapPostEventPage/>
+        <MapPostEventPage route={route}/>
     );
 }
 
-function MapEventDetailsScreen() {
+function MapEventDetailsScreen({route}) {
     return (
-        <MapEventDetailsPage/>
+        <MapEventDetailsPage route={route}/>
     );
 }
 
@@ -45,9 +52,9 @@ function MapTestScreen({ navigation }) {
   );
 }
 
-function MapTest2Screen({ navigation }) {
+function MapTest2Screen({ navigation, route }) {
   return (
-      <MapTest2Page navigation={navigation}/>
+      <MapTest2Page navigation={navigation} route={route}/>
   );
 }
 
@@ -73,6 +80,7 @@ function HomeStackScreen() {
       }}
     >
       <HomeStack.Screen name="MapMain" component={MapMainScreen} />
+      <HomeStack.Screen name="Permission" component={PermissionScreen} />
       <HomeStack.Screen name="MapEventDetails" component={MapEventDetailsScreen} />
       <HomeStack.Screen name="MapPostEvent" component={MapPostEventScreen} />
       <HomeStack.Screen name="MapDuplicateAlert" component={MapDuplicateAlertScreen} />
