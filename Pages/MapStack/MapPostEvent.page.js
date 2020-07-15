@@ -14,9 +14,9 @@ export default function MapPostEventPage({route, navigation}){
     // console.log('lng', lng)
         return(
             <View style={styles.main_container}>
-                <View style={styles.img_container}>
+                {/* <View style={styles.img_container}>
                     <CirclePictureArea text={"Prendre une photo"} color={'white'} />
-                </View>
+                </View> */}
                 <View style={styles.title_container}>
                     <TextInputCustom placeholder={"Saisir une description"} />
                 </View>

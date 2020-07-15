@@ -19,7 +19,7 @@ export default function MapMainPage(props){
                     onPress={() => props.navigation.navigate('MapTest')}
                 /> */}
                 <Button
-                    title="Vers la carte test 2"
+                    title="Vers la carte test"
                     onPress={() => props.navigation.navigate('MapTest2')}
                 />
             </View>

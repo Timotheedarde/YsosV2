@@ -28,9 +28,9 @@ export default function NavigationLogin() {
   return (
     <View style={styles.container}>
       {loggedInUser &&
-        <View>
+        <View style={styles.main}> 
           <Header  style={styles.header} user={loggedInUser} onLogout={handleLogout}/>
-          <Navigation user={loggedInUser}/>
+          <Navigation/>
         </View>
       }
       {!loggedInUser &&
@@ -43,11 +43,13 @@ export default function NavigationLogin() {
 
 
 const styles = StyleSheet.create({
+  main:{
+    flex:1,
+  },
   container: {
     flex: 1,
-    alignItems:'center',
     justifyContent:'center',
-    backgroundColor: "#3A60F8"
+    backgroundColor: "#3A60F8",
   },
 });
 

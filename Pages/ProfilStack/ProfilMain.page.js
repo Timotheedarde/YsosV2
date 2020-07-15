@@ -11,7 +11,7 @@ export default function ProfilMainPage(){
 
         return(
             <View style={styles.main_container}>
-                <CirclePictureArea color={'white'} />
+                {/* <CirclePictureArea color={'white'} /> */}
                 <TextInputCustom placeholder={'Pseudo'} />
                 <TextInputCustom placeholder={'Adresse Email'} />
                 <BoutonCustom text={'Mettre à jour'} color={'#3DBB41'} fontSize={30} width={250} />

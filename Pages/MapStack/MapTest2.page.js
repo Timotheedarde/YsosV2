@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View} from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, View,Text,  Animated} from 'react-native';
 import BoutonIcon from '../../Components/BoutonIcon'
 import GPSMark from '../../Components/GPSMark'
+
 /**
  ** Support de Google Map avec React-Native-Map
  */
@@ -47,6 +48,20 @@ export default function MapTest2({ navigation}){
         // }
 //}, []);
 // console.log({longitude, latitude})
+
+    const fadeAnim = useRef(new Animated.Value(0)).current;
+    React.useEffect(() => {
+        Animated.timing(
+        fadeAnim,
+        {
+            toValue: 1,
+            duration: 5000,
+            useNativeDriver: true
+        }
+        ).start();
+    }, [fadeAnim])
+
+
     return(
     <View style={styles.main}>
         <View style={styles.container}>
@@ -70,9 +85,9 @@ export default function MapTest2({ navigation}){
             </Marker>
             <RenderMarqueurs navigation={navigation}/>
             </MapView>
-            <View style={styles.boutonAdEvent}>
+            <Animated.View style={[styles.boutonAdEvent ,{opacity: fadeAnim}]}>
               <BoutonIcon  icon={"crosshairs-gps"} iconColor={"white"} color={'#2231B2'} iconSize={45} width={80} onPress={() => navigation.navigate('MapPostEvent',{lat:latitude, lng:longitude} )} />
-            </View>
+            </Animated.View>
         </View>
     </View>
     )
@@ -152,8 +167,11 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
     },
     boutonAdEvent: {
-      position:'absolute',
-      right:10,
-      bottom:10,
+        position:'absolute',
+        right:10,
+        bottom:10,
     },
+    userMarker:{
+
+    }
 })
