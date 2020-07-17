@@ -8,13 +8,24 @@ export default function TextInputCustom(props){
         zone:{
             margin:5,
             backgroundColor:'white',
-            borderTopWidth: .5,
-            borderRightWidth: .5,
-            borderBottomWidth: 2,
-            borderLeftWidth: 2,
-            borderBottomColor:'black',
+            // borderTopWidth: .5,
+            // borderRightWidth: .5,
+            // borderBottomWidth: 2,
+            // borderLeftWidth: 2,
+            // borderColor:'black',
             width:250,
-            padding:5,
+            height:50,
+            borderRadius:50,
+            paddingHorizontal:15,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: -2,
+                height: -2,
+            },
+            shadowOpacity: 0.23,
+            shadowRadius: 2.62,
+
+            elevation: 4,
         }
         })
     return (

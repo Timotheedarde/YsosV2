@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 
-import CirclePictureArea from '../../Components/CirclePictureArea'
+import CirclePictureAreaEmpty from '../../Components/CirclePictureAreaEmpty'
 import TextInputCustom from '../../Components/TextInputCustom'
 import BoutonCustom from '../../Components/BoutonCustom'
 
@@ -11,9 +11,11 @@ export default function ProfilMainPage(){
 
         return(
             <View style={styles.main_container}>
-                {/* <CirclePictureArea color={'white'} /> */}
+                <CirclePictureAreaEmpty text={"Avatar"} color={'white'} width={150} />
                 <TextInputCustom placeholder={'Pseudo'} />
                 <TextInputCustom placeholder={'Adresse Email'} />
+                <TextInputCustom placeholder={'Nom'} />
+                <TextInputCustom placeholder={'Prénom'} />
                 <BoutonCustom text={'Mettre à jour'} color={'#3DBB41'} fontSize={30} width={250} />
                 <BoutonCustom text={'Supprimer mon compte'} color={'#C23131'} fontSize={15} width={250} />
                 {/* <Button title="cliquez ici" /> */}

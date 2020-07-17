@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, Image} from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
 
 export default class CirclePictureArea extends React.Component {
     render(){
         
-        const {text, color, width, srcPhoto, onPress}=this.props;
+        const {text, color, width, onPress}=this.props;
 
         const styles = StyleSheet.create({
             container:{
@@ -28,25 +28,11 @@ export default class CirclePictureArea extends React.Component {
                 color:'grey',
                 fontSize: 30,
             },
-            image:{
-                borderRadius:width/2,
-                width:width,
-                height:width,
-                borderBottomWidth:1.5,
-                borderLeftWidth:1,
-                borderRightWidth:1,
-
-            }
           })
         return (
             <TouchableOpacity style={styles.container} onPress={onPress}>
                     <View style={styles.textArea}>
-                        <Image
-                            style={styles.image}
-                            source={{
-                            uri: srcPhoto,
-                            }}
-                        />
+                        <Text style={styles.text}>{text}</Text>
                     </View>
             </TouchableOpacity> 
         );

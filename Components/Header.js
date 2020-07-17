@@ -25,6 +25,7 @@ export default function Header(props) {
 const styles = StyleSheet.create({
   header: {
     marginTop:5,
+    marginRight:5,
     minWidth:400,
     height:32,
     flexDirection: 'row',

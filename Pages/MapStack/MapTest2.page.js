@@ -12,7 +12,9 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
  */
 import Geolocation from 'react-native-geolocation-service'
 
-export default function MapTest2({ navigation}){
+export default function MapTest2({ route, navigation}){
+
+
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
     //React.useEffect(() => {
@@ -49,13 +51,17 @@ export default function MapTest2({ navigation}){
 //}, []);
 // console.log({longitude, latitude})
 
+
+
+    //ANIMTATION BOUTON ADEVENT//
     const fadeAnim = useRef(new Animated.Value(0)).current;
     React.useEffect(() => {
         Animated.timing(
         fadeAnim,
         {
             toValue: 1,
-            duration: 5000,
+            delay:3000,
+            duration: 2000,
             useNativeDriver: true
         }
         ).start();
@@ -68,7 +74,7 @@ export default function MapTest2({ navigation}){
             <MapView
                 provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                 style={styles.map}
-                //mapType={"satellite"}
+                mapType={"standard"}
                 //showsUserLocation = {true}
                 region={{
                     latitude: latitude,
@@ -78,10 +84,10 @@ export default function MapTest2({ navigation}){
                 }}
             >
             <Marker
-            title={"UserName"}
+            title={"Vous"}
             coordinate={{latitude,longitude}}
             >
-              <GPSMark  icon={"human-handsup"} iconColor={"red"} color={'transparent'} iconSize={50}/>
+              <GPSMark  icon={"odnoklassniki"} iconColor={"red"} color={'transparent'} iconSize={50}/>
             </Marker>
             <RenderMarqueurs navigation={navigation}/>
             </MapView>

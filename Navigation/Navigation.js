@@ -28,9 +28,9 @@ function MapDuplicateAlertScreen() {
     );
  }
 
-function MapPostEventScreen({route}) {
+function MapPostEventScreen({navigation, route}) {
     return (
-        <MapPostEventPage route={route}/>
+        <MapPostEventPage navigation={navigation} route={route}/>
     );
 }
 
@@ -72,7 +72,9 @@ function HomeStackScreen() {
       screenOptions={{
         headerStyle: {
           backgroundColor: '#3A60F8',
+          height:30,
         },
+        headerTitle:false,
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
@@ -98,7 +100,9 @@ function ProfilStackScreen() {
       screenOptions={{
         headerStyle: {
           backgroundColor: '#3A60F8',
+          height:30,
         },
+        headerTitle:false,
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',

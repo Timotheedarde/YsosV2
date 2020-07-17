@@ -13,7 +13,9 @@ export default function BoutonIcon(props){
                 borderRadius:50,
                 width:props.width,
                 height:props.width,
-                margin:5,
+                borderBottomWidth:.5,
+                borderLeftWidth:.2,
+                borderRightWidth:.2,
             },
             icon:{
                 textAlign:'center',
