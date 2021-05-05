@@ -1,0 +1,10 @@
+# Les ligne commençant par '#' sont des commentaires.
+# Ignorer tous les fichiers nommés
+node_modules
+.idea
+# Ignorer tous les fichiers html
+#*.html
+# à l'exception de
+
+# Ignorer les objets et les archives
+#*.[oa]
